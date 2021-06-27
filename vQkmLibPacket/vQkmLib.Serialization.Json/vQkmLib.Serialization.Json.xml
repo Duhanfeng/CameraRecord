@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Serialization.Json</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Serialization.Json.JsonSerialization">
+            <summary>
+            Json序列化接口
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Serialization.Json.JsonSerialization.SerializeObject(System.Object)">
+            <summary>
+            序列化对象
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:vQkmLib.Serialization.Json.JsonSerialization.SerializeObjectToFile(System.Object,System.String)">
+            <summary>
+            序列化对象并保存到文件中
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <param name="path">保存文件路径</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:vQkmLib.Serialization.Json.JsonSerialization.DeserializeObject``1(System.String)">
+            <summary>
+            反序列化对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="value">反序列化字符串</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="M:vQkmLib.Serialization.Json.JsonSerialization.DeserializeObjectFromFile``1(System.String)">
+            <summary>
+            从文件中反序列化对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="path">文件路径</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+    </members>
+</doc>

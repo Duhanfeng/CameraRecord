@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Vision.Base</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Vision.Base.BitmapCreation">
+            <summary>
+            Bitmap接口
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Vision.Base.BitmapCreation.CopyMemory(System.IntPtr,System.IntPtr,System.UInt32)">
+            <summary>
+            内存拷贝
+            </summary>
+            <param name="dest">目的内存</param>
+            <param name="src">源内存</param>
+            <param name="count">拷贝数量</param>
+        </member>
+        <member name="M:vQkmLib.Vision.Base.BitmapCreation.CreateGrayBitmap(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            创建灰度图片图像
+            </summary>
+            <param name="Gray">像素源</param>
+            <param name="Width">宽度</param>
+            <param name="Height">高度</param>
+            <returns>Bitmap图像</returns>
+            <note>处理1000张1080P/720P的图片,耗时906.006/486.596毫秒</note>
+        </member>
+        <member name="M:vQkmLib.Vision.Base.BitmapCreation.CreateGrayBitmap(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            创建灰度图片图像
+            </summary>
+            <param name="GrayPtr">像素源指针</param>
+            <param name="Width">宽度</param>
+            <param name="Height">高度</param>
+            <returns>Bitmap图像</returns>
+            <note>处理1000张1080P/720P的图片,耗时1057.552/461.177毫秒</note>
+        </member>
+        <member name="M:vQkmLib.Vision.Base.BitmapCreation.CreateRgbBitmapByBgrPtr(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            创建rgb位图
+            </summary>
+            <param name="bgrPtr">bgr格式指针</param>
+            <param name="Width">宽度</param>
+            <param name="Height">高度</param>
+            <returns>rgb位图</returns>
+        </member>
+        <member name="M:vQkmLib.Vision.Base.BitmapCreation.CreateRgbBitmapByRgbPtr(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            创建rgb位图
+            </summary>
+            <param name="rgbPtr">rgb格式指针</param>
+            <param name="Width">宽度</param>
+            <param name="Height">高度</param>
+            <returns>rgb位图</returns>
+        </member>
+    </members>
+</doc>

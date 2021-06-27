@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Robot</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Robot.ToolCoordinateSystem">
+            <summary>
+            工具坐标系(TCS,Tool Coordinate System)
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.RotatePoint(vQkmLib.Matrix.Units.Point2D,vQkmLib.Matrix.Units.Point2D,System.Double)">
+            <summary>
+            旋转点位
+            </summary>
+            <param name="p0">旋转中心</param>
+            <param name="p1">旋转点位</param>
+            <param name="angle">旋转角度</param>
+            <returns>旋转后的点位</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.FitCircle(System.Collections.Generic.List{vQkmLib.Matrix.Units.Point2D},vQkmLib.Matrix.Units.Point2D@,System.Double@)">
+            <summary>
+            拟合圆算法
+            </summary>
+            <param name="points">圆上点位</param>
+            <param name="center">圆心</param>
+            <param name="radius">圆半径</param>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.CalibrateToolCoordPoint(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame,System.Double)">
+            <summary>
+            计算工具坐标矩阵
+            </summary>
+            <param name="sequence">欧拉角顺规类型</param>
+            <param name="frame1">位姿1</param>
+            <param name="frame2">位姿2</param>
+            <param name="offsetZ">Z轴偏移</param>
+            <returns>4x4工具坐标矩阵(齐次)</returns>
+            <remarks>
+            frame1与frame2,工具末端必须相差180度;
+            </remarks>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.CalibrateToolCoordPoint(vQkmLib.Matrix.AngleSet,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算工具坐标矩阵
+            </summary>
+            <param name="sequence">欧拉角顺规类型</param>
+            <param name="x1">点位1坐标</param>
+            <param name="y1">点位1坐标</param>
+            <param name="z1">点位1坐标</param>
+            <param name="r11">点位1坐标</param>
+            <param name="r12">点位1坐标</param>
+            <param name="r13">点位1坐标</param>
+            <param name="x2">点位2坐标</param>
+            <param name="y2">点位2坐标</param>
+            <param name="z2">点位2坐标</param>
+            <param name="r21">点位2坐标</param>
+            <param name="r22">点位2坐标</param>
+            <param name="r23">点位2坐标</param>
+            <param name="offsetZ">工具Z轴偏移</param>
+            <returns>4x4工具坐标矩阵(齐次)</returns>
+            <remarks>
+            frame1与frame2,工具末端必须相差180度;
+            </remarks>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.CalibrateToolCoordPointEx(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame,System.Double)">
+            <summary>
+            计算工具坐标矩阵
+            </summary>
+            <param name="sequence">欧拉角顺规类型</param>
+            <param name="frame1">位姿1</param>
+            <param name="frame2">位姿2</param>
+            <param name="offsetZ">Z轴偏移</param>
+            <returns>4x4工具坐标矩阵(齐次)</returns>
+            <remarks>
+            frame1与frame2,工具末端不必相差180度;
+            
+            数据模型:
+                matrix = | R   T |
+                         | 0   1 |
+                R: 3x3旋转矩阵
+                T: 3x1平移矩阵
+                
+            工具坐标系求解公式:
+                T = (R1-R2)^-1 * (T2-T1)
+            
+            </remarks>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.CalibrateToolCoordPointEx(vQkmLib.Matrix.AngleSet,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算工具坐标矩阵
+            </summary>
+            <param name="sequence">欧拉角顺规类型</param>
+            <param name="x1">点位1坐标</param>
+            <param name="y1">点位1坐标</param>
+            <param name="z1">点位1坐标</param>
+            <param name="r11">点位1坐标</param>
+            <param name="r12">点位1坐标</param>
+            <param name="r13">点位1坐标</param>
+            <param name="x2">点位2坐标</param>
+            <param name="y2">点位2坐标</param>
+            <param name="z2">点位2坐标</param>
+            <param name="r21">点位2坐标</param>
+            <param name="r22">点位2坐标</param>
+            <param name="r23">点位2坐标</param>
+            <param name="offsetZ">工具Z轴偏移</param>
+            <returns>4x4工具坐标矩阵(齐次)</returns>
+            <remarks>
+            frame1与frame2,工具末端不必相差180度;
+            
+            数据模型:
+                matrix = | R   T |
+                         | 0   1 |
+                R: 3x3旋转矩阵
+                T: 3x1平移矩阵
+                
+            工具坐标系求解公式:
+                T = (R1-R2)^-1 * (T2-T1)
+            
+            </remarks>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.CalibrateToolCoordPointEx(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean)">
+            <summary>
+            计算相对坐标系
+            </summary>
+            <param name="x1">点位1X</param>
+            <param name="y1">点位1Y</param>
+            <param name="r1">点位1角度</param>
+            <param name="x2">点位2X</param>
+            <param name="y2">点位2Y</param>
+            <param name="r2">点位2角度</param>
+            <param name="isClockwise">true-顺时针r增加 false-逆时针r增加</param>
+            <returns>工具坐标矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.ToolCoordinateSystem.CalibrateToolCoordPointEx(System.Collections.Generic.List{vQkmLib.Matrix.Units.Point2D},System.Double,System.Boolean)">
+            <summary>
+            计算工具坐标(平面圆方式)
+            </summary>
+            <param name="points">拟合点位</param>
+            <param name="firstPointAngle">第一点的角度</param>
+            <param name="isClockwise">true-顺时针r增加 false-逆时针r增加</param>
+            <returns>工具坐标矩阵</returns>
+        </member>
+        <member name="T:vQkmLib.Robot.QkmLocation">
+            <summary>
+            ZYZ机器人构型
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.#ctor">
+            <summary>
+            创建QkmLocation新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            创建QkmLocation新实例
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            创建QkmLocation新实例
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+            <param name="yaw">绕第1轴旋转角度(deg)</param>
+            <param name="pitch">绕第2轴旋转角度(deg)</param>
+            <param name="roll">绕第3轴旋转角度(deg)</param>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.#ctor(vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            创建QkmLocation新实例
+            </summary>
+            <param name="frame">位姿</param>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.#ctor(vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            创建QkmLocation新实例
+            </summary>
+            <param name="matrix">3x3齐次变换矩阵</param>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.#ctor(vQkmLib.Robot.QkmLocation)">
+            <summary>
+            创建QkmLocation新实例
+            </summary>
+            <param name="location">QkmLocation实例</param>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.X">
+            <summary>
+            X
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.Y">
+            <summary>
+            Y
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.Z">
+            <summary>
+            Z
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.Yaw">
+            <summary>
+            角度1
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.Pitch">
+            <summary>
+            角度2
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.Roll">
+            <summary>
+            角度3
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.AngleSet">
+            <summary>
+            欧拉角
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.Frame">
+            <summary>
+            位姿
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.ToolFrame">
+            <summary>
+            带工具的位姿
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.UseTool">
+            <summary>
+            使用工具坐标
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Robot.QkmLocation.Tool">
+            <summary>
+            工具坐标
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.ConvertFrame2ToolFrame">
+            <summary>
+            转换位姿到带工具坐标的位姿
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.ConvertToolFrame2Frame">
+            <summary>
+            转换带工具坐标的位姿到位姿
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.UpdateFrameByEulerAngle">
+            <summary>
+            通过欧拉角更新位姿
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.UpdateEulerAngleByFrame">
+            <summary>
+            通过位姿更新欧拉角
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.GetMatrix">
+            <summary>
+            获取矩阵
+            </summary>
+            <returns>点位矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns>QkmLocation实例</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.Inverse">
+            <summary>
+            点位求逆
+            </summary>
+            <returns>翻转</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.op_Multiply(vQkmLib.Robot.QkmLocation,vQkmLib.Robot.QkmLocation)">
+            <summary>
+            乘法运算
+            </summary>
+            <param name="left">左运算数</param>
+            <param name="right">右运算数</param>
+            <returns>运算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.op_Multiply(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Robot.QkmLocation)">
+            <summary>
+            乘法运算
+            </summary>
+            <param name="left">左运算数</param>
+            <param name="right">右运算数</param>
+            <returns>运算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.op_Multiply(vQkmLib.Robot.QkmLocation,vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            乘法运算
+            </summary>
+            <param name="left">左运算数</param>
+            <param name="right">右运算数</param>
+            <returns>运算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Robot.QkmLocation.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串</returns>
+        </member>
+    </members>
+</doc>

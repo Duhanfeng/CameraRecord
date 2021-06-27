@@ -1,0 +1,1651 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Matrix</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Matrix.Calibration.Calibration2D">
+            <summary>
+            标定
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.Calibration2D.GetCalibrationMatrix(System.Double[],System.Double[],System.Double[],System.Double[])">
+            <summary>
+            计算九点标定矩阵
+            </summary>
+            <param name="px">起始点X</param>
+            <param name="py">起始点Y</param>
+            <param name="qx">目标点位X</param>
+            <param name="qy">目标点位Y</param>
+            <returns>3x3标定矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.Calibration2D.GetCalibrationMatrix(System.Collections.Generic.IEnumerable{vQkmLib.Matrix.Units.Point2D},System.Collections.Generic.IEnumerable{vQkmLib.Matrix.Units.Point2D})">
+            <summary>
+            获取标定矩阵
+            </summary>
+            <param name="srcs">起始点列表</param>
+            <param name="dsts">目标点列表</param>
+            <returns>3x3标定矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.Calibration2D.Calibrate(System.Double[],System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            标定
+            </summary>
+            <param name="matrix">3x3标定矩阵</param>
+            <param name="px">起始点X</param>
+            <param name="py">起始点Y</param>
+            <param name="qx">目标点位X</param>
+            <param name="qy">目标点位Y</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.Calibration2D.Calibrate(System.Double[],System.Double[],System.Double[],System.Double[]@,System.Double[]@)">
+            <summary>
+            标定
+            </summary>
+            <param name="matrix">3x3标定矩阵</param>
+            <param name="px">起始点X</param>
+            <param name="py">起始点Y</param>
+            <param name="qx">目标点位X</param>
+            <param name="qy">目标点位Y</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.Calibration2D.Calibrate(vQkmLib.Matrix.HomogeneousMatrix2D,System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            标定
+            </summary>
+            <param name="matrix">3x3齐次变换矩阵</param>
+            <param name="px">起始点X</param>
+            <param name="py">起始点Y</param>
+            <param name="qx">目标点位X</param>
+            <param name="qy">目标点位Y</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.Calibration2D.Calibrate(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.Units.Point2D,vQkmLib.Matrix.Units.Point2D@)">
+            <summary>
+            标定
+            </summary>
+            <param name="matrix">3x3标定矩阵</param>
+            <param name="src">起始点列表</param>
+            <param name="dst">目标点列表</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.Calibration2D.Calibrate(vQkmLib.Matrix.HomogeneousMatrix2D,System.Collections.Generic.List{vQkmLib.Matrix.Units.Point2D},System.Collections.Generic.List{vQkmLib.Matrix.Units.Point2D}@)">
+            <summary>
+            标定
+            </summary>
+            <param name="matrix">3x3标定矩阵</param>
+            <param name="srcs">起始点列表</param>
+            <param name="dsts">目标点列表</param>
+        </member>
+        <member name="T:vQkmLib.Matrix.Calibration.HandEyeCalibration">
+            <summary>
+            手眼标定
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.HandEyeCalibration.GetHandEyeResult(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D@)">
+            <summary>
+            获取手眼结果
+            </summary>
+            <param name="calibHomMatrix">标定位姿齐次矩阵</param>
+            <param name="currentHomMatrix">当前位姿齐次矩阵</param>
+            <param name="srcPointMatrix">原始点齐次矩阵</param>
+            <param name="dstPointMatrix">目标点齐次矩阵</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.HandEyeCalibration.GetHandEyeResult(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame@)">
+            <summary>
+            获取手眼结果
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="calibHomMatrix">标定位姿齐次矩阵</param>
+            <param name="currentHomMatrix">当前位姿齐次矩阵</param>
+            <param name="srcFrame">原始点位姿</param>
+            <param name="dstFrame">目标点位姿</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.HandEyeCalibration.GetHandEyeResult(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame@)">
+            <summary>
+            获取手眼结果
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="calibFrame">标定位姿</param>
+            <param name="currentFrame">当前位姿</param>
+            <param name="srcFrame">原始点位姿</param>
+            <param name="dstFrame">目标点位姿</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Calibration.HandEyeCalibration.GetHandEyeResult(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Pose2D,vQkmLib.Matrix.Units.Pose2D@)">
+            <summary>
+            获取手眼结果
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="calibFrame">标定位姿</param>
+            <param name="currentFrame">当前位姿</param>
+            <param name="srcPose">原始点</param>
+            <param name="dstPose">目标点</param>
+        </member>
+        <member name="T:vQkmLib.Matrix.AngleSet">
+            <summary>
+            转角排列设定
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Matrix.AngleSet.XYZFixedAngle">
+            <summary>
+            XYZ固定角
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Matrix.AngleSet.XYZEulerAngle">
+            <summary>
+            ZYX欧拉角
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Matrix.AngleSet.ZYXEulerAngle">
+            <summary>
+            ZYX欧拉角
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Matrix.AngleSet.ZYZEulerAngle">
+            <summary>
+            ZYZ欧拉角
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Matrix.EulerAngle">
+            <summary>
+            欧拉角空间描述
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngleMatrix(System.Double,System.Double,System.Double)">
+            <summary>
+            获取XYZ欧拉角矩阵
+            </summary>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngleMatrix(vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取XYZ欧拉角矩阵
+            </summary>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngleMatrix(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            获取XYZ欧拉角矩阵
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngleMatrix(vQkmLib.Matrix.Units.Point3D,vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取XYZ欧拉角矩阵
+            </summary>
+            <param name="point3D">位置</param>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngleMatrix(vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            获取XYZ欧拉角矩阵
+            </summary>
+            <param name="frame">位姿</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngleMatrix(System.Double,System.Double,System.Double)">
+            <summary>
+            获取ZYX欧拉角矩阵
+            </summary>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngleMatrix(vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取ZYX欧拉角矩阵
+            </summary>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngleMatrix(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            获取ZYX欧拉角矩阵
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngleMatrix(vQkmLib.Matrix.Units.Point3D,vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取ZYX欧拉角矩阵
+            </summary>
+            <param name="point3D">位置</param>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngleMatrix(vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            获取ZYX欧拉角矩阵
+            </summary>
+            <param name="frame">位姿</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngleMatrix(System.Double,System.Double,System.Double)">
+            <summary>
+            获取ZYZ欧拉角矩阵
+            </summary>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngleMatrix(vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取ZYZ欧拉角矩阵
+            </summary>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngleMatrix(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            获取ZYZ欧拉角矩阵
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngleMatrix(vQkmLib.Matrix.Units.Point3D,vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取ZYZ欧拉角矩阵
+            </summary>
+            <param name="point3D">位置</param>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngleMatrix(vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            获取ZYZ欧拉角矩阵
+            </summary>
+            <param name="frame">位姿</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngleMatrix(vQkmLib.Matrix.AngleSet,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            获取欧拉角矩阵
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngleMatrix(vQkmLib.Matrix.AngleSet,System.Double,System.Double,System.Double)">
+            <summary>
+            获取欧拉角矩阵
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngleMatrix(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取欧拉角矩阵
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngleMatrix(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Point3D,vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            获取欧拉角矩阵
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="point3D">位置</param>
+            <param name="orientation">姿态</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngleMatrix(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            获取欧拉角矩阵
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="frame">位姿</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            获取XYZ欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Orientation@)">
+            <summary>
+            获取XYZ欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="orientation">姿态</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetXYZEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Frame@)">
+            <summary>
+            获取XYZ欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="frame">位姿</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            获取ZYX欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Orientation@)">
+            <summary>
+            获取ZYX欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="orientation">姿态</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYXEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Frame@)">
+            <summary>
+            获取ZYX欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="frame">位姿</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            获取XYZ欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Orientation@)">
+            <summary>
+            获取ZYZ欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="orientation">姿态</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetZYZEulerAngle(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Frame@)">
+            <summary>
+            获取ZYZ欧拉角
+            </summary>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="frame">位姿</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngle(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.HomogeneousMatrix3D,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            获取欧拉角
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngle(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.HomogeneousMatrix3D,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            获取XYZ欧拉角
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngle(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Orientation@)">
+            <summary>
+            获取欧拉角
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="orientation">姿态</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.GetEulerAngle(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Frame@)">
+            <summary>
+            获取欧拉角
+            </summary>
+            <param name="angleSet">欧拉角顺规</param>
+            <param name="matrix">4x4齐次变换矩阵</param>
+            <param name="frame">位姿</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.ConvertEulerAngle(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.AngleSet,System.Double,System.Double,System.Double,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            转换欧拉角
+            </summary>
+            <param name="srcAngleSet">原始欧拉角顺规</param>
+            <param name="dstAngleSet">目标欧拉角顺规</param>
+            <param name="alpha1">原始欧拉角,绕第1轴旋转角度</param>
+            <param name="belta1">原始欧拉角,绕第2轴旋转角度</param>
+            <param name="gamma1">原始欧拉角,绕第3轴旋转角度</param>
+            <param name="alpha2">目标欧拉角,绕第1轴旋转角度</param>
+            <param name="belta2">目标欧拉角,绕第2轴旋转角度</param>
+            <param name="gamma2">目标欧拉角,绕第3轴旋转角度</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.ConvertEulerAngle(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Orientation,vQkmLib.Matrix.Units.Orientation@)">
+            <summary>
+            转换欧拉角
+            </summary>
+            <param name="srcAngleSet">原始欧拉角顺规</param>
+            <param name="dstAngleSet">目标欧拉角顺规</param>
+            <param name="srcOrientation">原始姿态</param>
+            <param name="dstOrientation">目标姿态</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.EulerAngle.ConvertEulerAngle(vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.AngleSet,vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame@)">
+            <summary>
+            转换欧拉角
+            </summary>
+            <param name="srcAngleSet">原始欧拉角顺规</param>
+            <param name="dstAngleSet">目标欧拉角顺规</param>
+            <param name="srcFrame">原始位姿</param>
+            <param name="dstFrame">目标位姿</param>
+        </member>
+        <member name="T:vQkmLib.Matrix.HomogeneousMatrix2D">
+            <summary>
+            3x3齐次变换矩阵
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Matrix.HomogeneousMatrix2D._matrix">
+            <summary>
+            内部矩阵
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.#ctor">
+            <summary>
+            创建Matrix2DHomogeneous新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.#ctor(MathNet.Numerics.LinearAlgebra.Double.DenseMatrix)">
+            <summary>
+            创建Matrix2DHomogeneous新实例
+            </summary>
+            <param name="matrix">初始矩阵</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            创建Matrix2DHomogeneous新实例
+            </summary>
+            <param name="m00">m[0,0]</param>
+            <param name="m01">m[0,1]</param>
+            <param name="m02">m[0,2]</param>
+            <param name="m10">m[1,0]</param>
+            <param name="m11">m[1,1]</param>
+            <param name="m12">m[1,2]</param>
+            <param name="m20">m[2,0]</param>
+            <param name="m21">m[2,1]</param>
+            <param name="m22">m[2,2]</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.#ctor(System.Double[])">
+            <summary>
+            创建Matrix2DHomogeneous新实例
+            </summary>
+            <param name="array">数组</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.#ctor(vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            创建HomogeneousMatrix2D新实例
+            </summary>
+            <param name="matrix">初始矩阵</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.#ctor(vQkmLib.Matrix.Units.Pose2D)">
+            <summary>
+            创建HomogeneousMatrix2D新实例
+            </summary>
+            <param name="pose">位置</param>
+        </member>
+        <member name="P:vQkmLib.Matrix.HomogeneousMatrix2D.Item(System.Int32,System.Int32)">
+            <summary>
+            索引器
+            </summary>
+            <param name="row">行坐标</param>
+            <param name="column">列坐标</param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Identity">
+            <summary>
+            创建单位矩阵
+            </summary>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.CreateTranslation(System.Double,System.Double)">
+            <summary>
+            创建平移矩阵
+            </summary>
+            <param name="dx">x平移量</param>
+            <param name="dy">y平移量</param>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.CreateScale(System.Double,System.Double)">
+            <summary>
+            创建缩放矩阵
+            </summary>
+            <param name="sx">x缩放量</param>
+            <param name="sy">y缩放量</param>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.CreateScale(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            创建缩放矩阵
+            </summary>
+            <param name="px">缩放中心</param>
+            <param name="py">缩放中心</param>
+            <param name="sx">x缩放量</param>
+            <param name="sy">y缩放量</param>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.CreateRotation(System.Double)">
+            <summary>
+            创建旋转矩阵
+            </summary>
+            <param name="angle">绕轴旋转量(弧度)</param>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.CreateRotation(System.Double,System.Double,System.Double)">
+            <summary>
+            创建旋转矩阵
+            </summary>
+            <param name="px">旋转中心</param>
+            <param name="py">旋转中心</param>
+            <param name="angle">绕轴转量(弧度)</param>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.ReflectionX">
+            <summary>
+            创建X轴的倒映矩阵
+            </summary>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.ReflectionY">
+            <summary>
+            创建Y轴的倒映矩阵
+            </summary>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.VectorAngleToRigid(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            根据两点创建齐次转换矩阵
+            </summary>
+            <param name="x1">点位1X</param>
+            <param name="y1">点位1Y</param>
+            <param name="angle1">点位1角度(rad)</param>
+            <param name="x2">点位2X</param>
+            <param name="y2">点位2Y</param>
+            <param name="angle2">点位2角度(rad)</param>
+            <returns>3x3齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.TransformPoint2D(vQkmLib.Matrix.HomogeneousMatrix2D,System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            对2D点位转换
+            </summary>
+            <param name="homMat">3x3齐次变换矩阵</param>
+            <param name="px">起始点X</param>
+            <param name="py">起始点Y</param>
+            <param name="qx">目标点X</param>
+            <param name="qy">目标点Y</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.TransformPoint2D(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.Units.Point2D,vQkmLib.Matrix.Units.Point2D@)">
+            <summary>
+            对2D点位转换
+            </summary>
+            <param name="homMat">3x3齐次变换矩阵</param>
+            <param name="src">起始点</param>
+            <param name="dst">目标点</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.TransformPoint2D(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.Units.Pose2D,vQkmLib.Matrix.Units.Pose2D@)">
+            <summary>
+            对2D点位转换
+            </summary>
+            <param name="homMat">3x3齐次变换矩阵</param>
+            <param name="src">起始点</param>
+            <param name="dst">目标点</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.ToArray">
+            <summary>
+            转为数组
+            </summary>
+            <returns>数组(length == 9)</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.ToList">
+            <summary>
+            转为列表
+            </summary>
+            <returns>列表</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.ToPose2D">
+            <summary>
+            转为Pose2D
+            </summary>
+            <returns>Pose2D</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            转为字符串
+            </summary>
+            <param name="format"></param>
+            <param name="formatProvider"></param>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Equals(vQkmLib.Matrix.HomogeneousMatrix2D,System.Double)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Equals(vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断数</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断数</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Inverse">
+            <summary>
+            取逆
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Transpose">
+            <summary>
+            转置
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Multiply(vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            相乘
+            </summary>
+            <param name="other">被乘数</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.Clone">
+            <summary>
+            矩阵克隆
+            </summary>
+            <returns>新齐次变换矩阵实例</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.op_Multiply(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            矩阵相乘
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.op_Multiply(vQkmLib.Matrix.HomogeneousMatrix2D,MathNet.Numerics.LinearAlgebra.Double.DenseMatrix)">
+            <summary>
+            矩阵*
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.op_Addition(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            矩阵+
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.op_Subtraction(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            矩阵-
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.op_Equality(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix2D.op_Inequality(vQkmLib.Matrix.HomogeneousMatrix2D,vQkmLib.Matrix.HomogeneousMatrix2D)">
+            <summary>
+            判断不相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="T:vQkmLib.Matrix.HomogeneousMatrix3D">
+            <summary>
+            4x4齐次变换矩阵
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Matrix.HomogeneousMatrix3D._matrix">
+            <summary>
+            内部矩阵
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.#ctor">
+            <summary>
+            创建HomogeneousMatrix3D新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.#ctor(MathNet.Numerics.LinearAlgebra.Double.DenseMatrix)">
+            <summary>
+            创建HomogeneousMatrix3D新实例
+            </summary>
+            <param name="matrix">初始矩阵</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            创建HomogeneousMatrix3D新实例
+            </summary>
+            <param name="m00">m[0,0]</param>
+            <param name="m01">m[0,1]</param>
+            <param name="m02">m[0,2]</param>
+            <param name="m03">m[0,3]</param>
+            <param name="m10">m[1,0]</param>
+            <param name="m11">m[1,1]</param>
+            <param name="m12">m[1,2]</param>
+            <param name="m13">m[1,3]</param>
+            <param name="m20">m[2,0]</param>
+            <param name="m21">m[2,1]</param>
+            <param name="m22">m[2,2]</param>
+            <param name="m23">m[2,3]</param>
+            <param name="m30">m[3,0]</param>
+            <param name="m31">m[3,1]</param>
+            <param name="m32">m[3,2]</param>
+            <param name="m33">m[3,3]</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.#ctor(System.Double[])">
+            <summary>
+            创建HomogeneousMatrix3D新实例
+            </summary>
+            <param name="array">数组</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.#ctor(vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            创建HomogeneousMatrix3D新实例
+            </summary>
+            <param name="matrix">初始矩阵</param>
+        </member>
+        <member name="P:vQkmLib.Matrix.HomogeneousMatrix3D.Item(System.Int32,System.Int32)">
+            <summary>
+            索引器
+            </summary>
+            <param name="row">行坐标</param>
+            <param name="column">列坐标</param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Identity">
+            <summary>
+            创建单位矩阵
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.CreateTranslation(System.Double,System.Double,System.Double)">
+            <summary>
+            创建平移矩阵
+            </summary>
+            <param name="dx">x平移量</param>
+            <param name="dy">y平移量</param>
+            <param name="dz">z平移量</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.CreateScale(System.Double,System.Double,System.Double)">
+            <summary>
+            创建缩放矩阵
+            </summary>
+            <param name="sx">x缩放量</param>
+            <param name="sy">y缩放量</param>
+            <param name="sz">z缩放量</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.RotationAroundXAxis(System.Double)">
+            <summary>
+            创建绕X轴旋转的矩阵
+            </summary>
+            <param name="angle">绕轴旋转量(弧度)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.RotationAroundYAxis(System.Double)">
+            <summary>
+            创建绕Y轴旋转的矩阵
+            </summary>
+            <param name="angle">绕轴旋转量(弧度)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.RotationAroundZAxis(System.Double)">
+            <summary>
+            创建绕Z轴旋转的矩阵
+            </summary>
+            <param name="angle">绕轴旋转量(弧度)</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.ReflectionXY">
+            <summary>
+            创建XY面的倒映矩阵
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.ReflectionXZ">
+            <summary>
+            创建XZ面的倒映矩阵
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.ReflectionYZ">
+            <summary>
+            创建YZ面的倒映矩阵
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.TransformPoint3D(vQkmLib.Matrix.HomogeneousMatrix3D,System.Double,System.Double,System.Double,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            对3D点位转换
+            </summary>
+            <param name="homMat">3x3齐次变换矩阵</param>
+            <param name="px">起始点X</param>
+            <param name="py">起始点Y</param>
+            <param name="pz">起始点Z</param>
+            <param name="qx">目标点X</param>
+            <param name="qy">目标点Y</param>
+            <param name="qz">目标点Z</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.TransformPoint3D(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.Units.Point3D,vQkmLib.Matrix.Units.Point3D@)">
+            <summary>
+            对2D点位转换
+            </summary>
+            <param name="homMat">3x3齐次变换矩阵</param>
+            <param name="src">起始点</param>
+            <param name="dst">目标点</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.ToArray">
+            <summary>
+            转为数组
+            </summary>
+            <returns>数组(length == 9)</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.ToList">
+            <summary>
+            转为列表
+            </summary>
+            <returns>列表</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            转为字符串
+            </summary>
+            <param name="format"></param>
+            <param name="formatProvider"></param>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Equals(vQkmLib.Matrix.HomogeneousMatrix3D,System.Double)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Equals(vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断数</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断数</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Inverse">
+            <summary>
+            取逆
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Transpose">
+            <summary>
+            转置
+            </summary>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Multiply(vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            相乘
+            </summary>
+            <param name="other">被乘数</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.Clone">
+            <summary>
+            矩阵克隆
+            </summary>
+            <returns>新齐次变换矩阵实例</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.op_Multiply(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            矩阵*
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.op_Multiply(vQkmLib.Matrix.HomogeneousMatrix3D,MathNet.Numerics.LinearAlgebra.Double.DenseMatrix)">
+            <summary>
+            矩阵*
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.op_Addition(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            矩阵+
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.op_Subtraction(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            矩阵-
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>4x4齐次变换矩阵</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.op_Equality(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.HomogeneousMatrix3D.op_Inequality(vQkmLib.Matrix.HomogeneousMatrix3D,vQkmLib.Matrix.HomogeneousMatrix3D)">
+            <summary>
+            判断不相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="T:vQkmLib.Matrix.Units.Angle">
+            <summary>
+            角度
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.Deg2Rad(System.Double)">
+            <summary>
+            角度转弧度
+            </summary>
+            <param name="deg">角度值</param>
+            <returns></returns>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Angle.Radians">
+            <summary>
+            弧度值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Angle.Degrees">
+            <summary>
+            角度值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.#ctor(System.Double)">
+            <summary>
+            创建Angle新实例
+            </summary>
+            <param name="radians">The value in Radians</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.#ctor">
+            <summary>
+            创建Angle新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.FromDegrees(System.Double)">
+            <summary>
+            获取Angle实例
+            </summary>
+            <param name="value">角度值</param>
+            <returns>Angle实例</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.FromRadians(System.Double)">
+            <summary>
+            获取Angle实例
+            </summary>
+            <param name="value">弧度值</param>
+            <returns>Angle实例</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_Equality(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_Inequality(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断不相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_LessThan(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断大小
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_GreaterThan(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断大小
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_LessThanOrEqual(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断大小
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_GreaterThanOrEqual(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断大小
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_Multiply(System.Double,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            角度值计算
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>计算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_Multiply(vQkmLib.Matrix.Units.Angle,System.Double)">
+            <summary>
+            角度值计算
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>计算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_Division(vQkmLib.Matrix.Units.Angle,System.Double)">
+            <summary>
+            角度值计算
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>计算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_Addition(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            角度值计算
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>计算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_Subtraction(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            角度值计算
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>计算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.op_UnaryNegation(vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            角度值去反
+            </summary>
+            <param name="angle">角度值</param>
+            <returns>计算结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串重载</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.CompareTo(vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            比较
+            </summary>
+            <param name="value">比较的值</param>
+            <returns>比较结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.Equals(vQkmLib.Matrix.Units.Angle,System.Double)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.Equals(vQkmLib.Matrix.Units.Angle,vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.Equals(vQkmLib.Matrix.Units.Angle)">
+            <summary>
+            判断相等
+            </summary>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Angle.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="T:vQkmLib.Matrix.Units.Frame">
+            <summary>
+            位姿
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Frame.Point3D">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Frame.Orientation">
+            <summary>
+            姿态
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            创建Frame新实例
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.#ctor(vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            创建Frame新实例
+            </summary>
+            <param name="frame">位姿</param>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Frame.Origin">
+            <summary>
+            原点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Frame.NaN">
+            <summary>
+            NaN对象
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.op_Equality(vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            运算符重载*
+            </summary>
+            <param name="left">位姿1</param>
+            <param name="right">位姿2</param>
+            <returns>点位相乘结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.op_Inequality(vQkmLib.Matrix.Units.Frame,vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            运算符重载*
+            </summary>
+            <param name="left">位姿1</param>
+            <param name="right">位姿2</param>
+            <returns>点位相乘结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">比较对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.Equals(vQkmLib.Matrix.Units.Frame)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">比较对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Frame.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Matrix.Units.Orientation">
+            <summary>
+            姿态
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Orientation.Alpha">
+            <summary>
+            绕第1轴旋转角度(rad)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Orientation.Beta">
+            <summary>
+            绕第2轴旋转角度(rad)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Orientation.Gamma">
+            <summary>
+            绕第3轴旋转角度(rad)
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            创建Orientation新实例
+            </summary>
+            <param name="alpha">绕第1轴旋转角度(rad)</param>
+            <param name="beta">绕第2轴旋转角度(rad)</param>
+            <param name="gamma">绕第3轴旋转角度(rad)</param>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Orientation.Origin">
+            <summary>
+            原点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Orientation.NaN">
+            <summary>
+            NaN对象
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.op_Equality(vQkmLib.Matrix.Units.Orientation,vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.op_Inequality(vQkmLib.Matrix.Units.Orientation,vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            判断不相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.Equals(System.Object,System.Double)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.Equals(vQkmLib.Matrix.Units.Orientation)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Orientation.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Matrix.Units.Point2D">
+            <summary>
+            3D点位
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point2D.X">
+            <summary>
+            X
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point2D.Y">
+            <summary>
+            Y
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.#ctor(System.Double,System.Double)">
+            <summary>
+            创建Position新实例
+            </summary>
+            <param name="x">X</param>
+            <param name="y">Y</param>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point2D.Origin">
+            <summary>
+            原点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point2D.NaN">
+            <summary>
+            NaN对象
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.op_Equality(vQkmLib.Matrix.Units.Point2D,vQkmLib.Matrix.Units.Point2D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.op_Inequality(vQkmLib.Matrix.Units.Point2D,vQkmLib.Matrix.Units.Point2D)">
+            <summary>
+            判断不相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.Equals(System.Object,System.Double)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.Equals(vQkmLib.Matrix.Units.Point2D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point2D.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Matrix.Units.Pose2D">
+            <summary>
+            3D点位
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Pose2D.X">
+            <summary>
+            X
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Pose2D.Y">
+            <summary>
+            Y
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Pose2D.Theta">
+            <summary>
+            Theta
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            创建Position新实例
+            </summary>
+            <param name="x">X</param>
+            <param name="y">Y</param>
+            <param name="theta">Theta</param>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Pose2D.Origin">
+            <summary>
+            原点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Pose2D.NaN">
+            <summary>
+            NaN对象
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.op_Equality(vQkmLib.Matrix.Units.Pose2D,vQkmLib.Matrix.Units.Pose2D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.op_Inequality(vQkmLib.Matrix.Units.Pose2D,vQkmLib.Matrix.Units.Pose2D)">
+            <summary>
+            判断不相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.Equals(System.Object,System.Double)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.Equals(vQkmLib.Matrix.Units.Pose2D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Pose2D.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Matrix.Units.Point3D">
+            <summary>
+            3D点位
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point3D.X">
+            <summary>
+            X
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point3D.Y">
+            <summary>
+            Y
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point3D.Z">
+            <summary>
+            Z
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            创建Position新实例
+            </summary>
+            <param name="x">X</param>
+            <param name="y">Y</param>
+            <param name="z">Z</param>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point3D.Origin">
+            <summary>
+            原点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Matrix.Units.Point3D.NaN">
+            <summary>
+            NaN对象
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.op_Equality(vQkmLib.Matrix.Units.Point3D,vQkmLib.Matrix.Units.Point3D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.op_Inequality(vQkmLib.Matrix.Units.Point3D,vQkmLib.Matrix.Units.Point3D)">
+            <summary>
+            判断不相等
+            </summary>
+            <param name="left">左值</param>
+            <param name="right">右值</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.Equals(System.Object,System.Double)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断数</param>
+            <param name="tolerance">容差</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.Equals(System.Object)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="obj">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.Equals(vQkmLib.Matrix.Units.Point3D)">
+            <summary>
+            判断相等
+            </summary>
+            <param name="other">判断对象</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.GetHashCode">
+            <summary>
+            获取希哈值
+            </summary>
+            <returns>希哈值</returns>
+        </member>
+        <member name="M:vQkmLib.Matrix.Units.Point3D.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+    </members>
+</doc>

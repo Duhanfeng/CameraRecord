@@ -1,0 +1,873 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Camera.Hik</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Camera.Hik.HikCamera">
+            <summary>
+            海康相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.Dispose(System.Boolean)">
+            <summary>
+            释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.HikCamera._LockObject">
+            <summary>
+            线程锁
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.HikCamera._Camera">
+            <summary>
+            相机接口
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.HikCamera._IsDriveCreated">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.HikCamera.DeviceInfo">
+            <summary>
+            设备信息
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.HikCamera.IsConnected">
+            <summary>
+            相机已连接标志
+            </summary>
+            <remarks>
+            只有调用MV_CC_CreateDevice_NET之后,MV_CC_IsDeviceConnected_NET才会返回正确的结果
+            </remarks>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.HikCamera.IsGrabbing">
+            <summary>
+            采集标志
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.HikCamera._CameraDescription">
+            <summary>
+            相机描述信息(基于XML文档)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.HikCamera.NodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.HikCamera.CameraOpened">
+            <summary>
+            相机打开事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.HikCamera.CameraClosed">
+            <summary>
+            相机关闭事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.HikCamera.ConnectionLost">
+            <summary>
+            连接断开事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.HikCamera._ImageGrabbed">
+            <summary>
+            相机采集完成事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.HikCamera.ImageGrabbed">
+            <summary>
+            图像采集完成事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.OnCameraOpened">
+            <summary>
+            触发相机打开事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.OnCameraClosed">
+            <summary>
+            触发相机关闭事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.OnConnectionLost">
+            <summary>
+            触发相机丢失事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.OnImageGrabbed(vQkmLib.Camera.ImageFrame)">
+            <summary>
+            图像采集完成事件
+            </summary>
+            <param name="imageFrame"></param>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.HikCamera._isImageCallBackRegistered">
+            <summary>
+            已注册相机回调标志
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.OutputExdelegate(System.IntPtr,MvCamCtrl.NET.MyCamera.MV_FRAME_OUT_INFO_EX@,System.IntPtr)">
+            <summary>
+            输出回调
+            </summary>
+            <param name="pData"></param>
+            <param name="pFrameInfo"></param>
+            <param name="pUser"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.Convert2ImageFrame(MvCamCtrl.NET.MyCamera.MV_FRAME_OUT)">
+            <summary>
+            转换为ImageFrame
+            </summary>
+            <param name="frameInfo">hik frameInfo数据结构</param>
+            <returns>图像</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.Convert2ImageFrame(System.IntPtr,MvCamCtrl.NET.MyCamera.MV_FRAME_OUT_INFO_EX,System.Boolean)">
+            <summary>
+            转换为ImageFrame
+            </summary>
+            <param name="imagePtr">图像指针</param>
+            <param name="frameInfo">hik frameInfo数据结构</param>
+            <param name="isNeedFree">需要手动释放资源标志</param>
+            <returns>图像</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.Connect(System.String)">
+            <summary>
+            连接相机
+            </summary>
+            <param name="serialNumber">相机序列号</param>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.Disconnet">
+            <summary>
+            断开连接
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.StartGrabbing">
+            <summary>
+            开始采集
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.StopGrabbing">
+            <summary>
+            停止采集
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.SetToOneFrameMode">
+            <summary>
+            设置为单帧模式
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.GetOneFrame(System.Int32)">
+            <summary>
+            获取单帧图像
+            </summary>
+            <param name="timeout">超时时间(毫秒),若timeout小于等于0,则无限等待</param>
+            <returns>采集到的图像帧</returns>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.HikCamera._DeviceInfos">
+            <summary>
+            设备信息
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.GetIPAddrString(System.UInt32)">
+            <summary>
+            获取IP地址字符串
+            </summary>
+            <param name="ip">ip地址</param>
+            <returns>IP地址字符串</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.GetDeviceInfo(MvCamCtrl.NET.MyCamera.MV_CC_DEVICE_INFO)">
+            <summary>
+            获取设备信息
+            </summary>
+            <param name="hikDeviceInfo">海康设备信息</param>
+            <returns>设备信息</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.GetDeviceInfos">
+            <summary>
+            获取设备信息
+            </summary>
+            <returns>设备列表</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.HikCamera.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>相机名</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.Hik.IntegerNode">
+            <summary>
+            整型节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.IntegerNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.IntegerNode._Key">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.IntegerNode.#ctor(MvCamCtrl.NET.MyCamera,System.String)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="key">节点名称</param>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.IntegerNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.IntegerNode.OnNodeValueChanged(System.Int64,System.Int64)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.IntegerNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.IntegerNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.Hik.FloatNode">
+            <summary>
+            浮点数节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.FloatNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.FloatNode._Key">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.FloatNode.#ctor(MvCamCtrl.NET.MyCamera,System.String)">
+            <summary>
+            创建FloatNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="key">节点名称</param>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.FloatNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.FloatNode.OnNodeValueChanged(System.Double,System.Double)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.FloatNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.FloatNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.Hik.BooleanNode">
+            <summary>
+            布尔节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.BooleanNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.BooleanNode._Key">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.BooleanNode.#ctor(MvCamCtrl.NET.MyCamera,System.String)">
+            <summary>
+            创建BooleanNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="key">节点名称</param>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.BooleanNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.BooleanNode.OnNodeValueChanged(System.Boolean,System.Boolean)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.BooleanNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.BooleanNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.BooleanNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.BooleanNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.BooleanNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.BooleanNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.BooleanNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.BooleanNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.Hik.StringNode">
+            <summary>
+            字符串节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.StringNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.StringNode._Key">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.StringNode.#ctor(MvCamCtrl.NET.MyCamera,System.String)">
+            <summary>
+            创建StringNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="key">节点名称</param>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.StringNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.StringNode.OnNodeValueChanged(System.String,System.String)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.StringNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.StringNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.StringNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.StringNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.StringNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.StringNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.StringNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.StringNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.Hik.CommandNode">
+            <summary>
+            命令节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.CommandNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.CommandNode._Key">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.CommandNode.#ctor(MvCamCtrl.NET.MyCamera,System.String)">
+            <summary>
+            创建CommandNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="key">节点名称</param>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.CommandNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.CommandNode.OnNodeValueChanged">
+            <summary>
+            触发节点值改变事件
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.CommandNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.CommandNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.CommandNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.CommandNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.CommandNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.CommandNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.CommandNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.CommandNode.Execute">
+            <summary>
+            执行命令
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.Hik.EnumNode">
+            <summary>
+            枚举节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.EnumNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.EnumNode._Key">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.EnumNode._EnumNodeDescription">
+            <summary>
+            节点描述
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.EnumNode.#ctor(MvCamCtrl.NET.MyCamera,System.String,vQkmLib.Camera.EnumNodeDescription)">
+            <summary>
+            创建EnumNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="key">节点名称</param>
+            <param name="description">枚举节点描述</param>
+        </member>
+        <member name="E:vQkmLib.Camera.Hik.EnumNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.EnumNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.EnumNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.EnumNodeValues">
+            <summary>
+            枚举值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.EnumNode.UpdateNodes(System.Collections.Generic.Dictionary{System.Int64,System.String}@,System.Int64@)">
+            <summary>
+            更新节点值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.IntValue">
+            <summary>
+            整型值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.EnumNode.StringValue">
+            <summary>
+            字符串值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.EnumNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.EnumNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.Hik.NodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.NodeCollection._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.Hik.NodeCollection._CameraDescription">
+            <summary>
+            相机描述信息(基于XML文档)
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.NodeCollection.#ctor(MvCamCtrl.NET.MyCamera)">
+            <summary>
+            创建NodeCollection新实例
+            </summary>
+            <param name="camera"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.NodeCollection.#ctor(MvCamCtrl.NET.MyCamera,vQkmLib.Camera.CameraDescription)">
+            <summary>
+            创建NodeCollection新实例
+            </summary>
+            <param name="camera">相机控制实例</param>
+            <param name="cameraDescription">xml相机描述</param>
+        </member>
+        <member name="M:vQkmLib.Camera.Hik.NodeCollection.UpdateXmlCameraRoot(vQkmLib.Camera.CameraDescription)">
+            <summary>
+            更新相机描述文件
+            </summary>
+            <param name="cameraDescription">相机描述信息</param>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.DeviceVendorName">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.DeviceModelName">
+            <summary>
+            设备型号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.DeviceVersion">
+            <summary>
+            设备版本
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.DeviceSerialNumber">
+            <summary>
+            设备序列号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.PixelFormat">
+            <summary>
+            像素格式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.AcquisitionMode">
+            <summary>
+            采集模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.AcquisitionStart">
+            <summary>
+            开始采集
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.AcquisitionStop">
+            <summary>
+            停止采集
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.TriggerMode">
+            <summary>
+            触发模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.TriggerSource">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.TriggerActivation">
+            <summary>
+            有效触发信号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.TriggerDelay">
+            <summary>
+            触发延迟(US)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.TriggerSoftware">
+            <summary>
+            软触发
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.ExposureTime">
+            <summary>
+            曝光时间(US)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.ExposureAuto">
+            <summary>
+            自动曝光模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.Gain">
+            <summary>
+            增益值(dB)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.GainAuto">
+            <summary>
+            自动增益模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.LineSelector">
+            <summary>
+            线选择器
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.LineMode">
+            <summary>
+            线模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.LineStatus">
+            <summary>
+            线状态
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.LineSource">
+            <summary>
+            线触发源(输出模式下,由哪种事件所导致的输出触发)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.Hik.NodeCollection.StrobeEnable">
+            <summary>
+            使能到实际的IO线
+            </summary>
+        </member>
+    </members>
+</doc>

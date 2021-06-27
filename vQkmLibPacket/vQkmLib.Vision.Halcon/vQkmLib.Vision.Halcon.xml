@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Vision.Halcon</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Vision.Halcon.HalconTools">
+            <summary>
+            halcon工具类
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.HalconTools.DispMessage(HalconDotNet.HTuple,HalconDotNet.HTuple,HalconDotNet.HTuple,HalconDotNet.HTuple,HalconDotNet.HTuple,HalconDotNet.HTuple,HalconDotNet.HTuple)">
+            <summary>
+            显示消息
+            </summary>
+            <param name="hv_WindowHandle"></param>
+            <param name="hv_String"></param>
+            <param name="hv_CoordSystem"></param>
+            <param name="hv_Row"></param>
+            <param name="hv_Column"></param>
+            <param name="hv_Color"></param>
+            <param name="hv_Box"></param>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.HalconTools.CheckObjectValidity(HalconDotNet.HObject)">
+            <summary>
+            检查halcon对象是否有效
+            </summary>
+            <param name="ho_Object">halcon对象</param>
+            <returns>结果</returns>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.HalconTools.SetFullImagePart(HalconDotNet.HWindowControlWPF,HalconDotNet.HObject)">
+            <summary>
+            按照比例放大至全屏
+            </summary>
+            <param name="window">窗口控件</param>
+            <param name="reference">参考图像</param>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.HalconTools.SetFullImagePart(HalconDotNet.HWindowControlWPF,System.Double,System.Double)">
+            <summary>
+            按照比例放大至全屏
+            </summary>
+            <param name="window">图像窗口</param>
+            <param name="imageWidth">图像宽度</param>
+            <param name="imageHeight">图像高度</param>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.HalconTools.SetFullImagePart(HalconDotNet.HWindowControl,HalconDotNet.HObject)">
+            <summary>
+            按照比例放大至全屏
+            </summary>
+            <param name="window">窗口控件</param>
+            <param name="reference">参考图像</param>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.HalconTools.SetFullImagePart(HalconDotNet.HWindowControl,System.Double,System.Double)">
+            <summary>
+            按照比例放大至全屏
+            </summary>
+            <param name="window">图像窗口</param>
+            <param name="imageWidth">图像宽度</param>
+            <param name="imageHeight">图像高度</param>
+        </member>
+        <member name="T:vQkmLib.Vision.Halcon.ScaleMode">
+            <summary>
+            缩放模式
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Vision.Halcon.ScaleMode.Normal">
+            <summary>
+            正常模式,不缩放
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Vision.Halcon.ScaleMode.Scale">
+            <summary>
+            同步缩放
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Vision.Halcon.ScaleMode.Aniso">
+            <summary>
+            异步缩放
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Vision.Halcon.ModelParams">
+            <summary>
+            模板参数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.NumLevels">
+            <summary>
+            金字塔级别
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.AngleStart">
+            <summary>
+            开始角度(弧度)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.AngleExtent">
+            <summary>
+            角度范围(弧度)(>0)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.AngleStep">
+            <summary>
+            角度步进(0-pi/16)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.Optimization">
+            <summary>
+            优化模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.Metric">
+            <summary>
+            匹配标准,设置极性属性
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.Contrast">
+            <summary>
+            对比度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.MinContrast">
+            <summary>
+            最小对比度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.ScaleRMin">
+            <summary>
+            行最小缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.ScaleRMax">
+            <summary>
+            行最大缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.ScaleRStep">
+            <summary>
+            行缩放步进
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.ScaleCMin">
+            <summary>
+            列最小缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.ScaleCMax">
+            <summary>
+            列最大缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.ScaleCStep">
+            <summary>
+            列缩放步进
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ModelParams.ScaleMode">
+            <summary>
+            缩放模式
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Vision.Halcon.MatchParams">
+            <summary>
+            匹配参数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.AngleStart">
+            <summary>
+            开始角度(弧度)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.AngleExtent">
+            <summary>
+            角度范围(弧度)(>0)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.MinScore">
+            <summary>
+            最小分数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.NumMatches">
+            <summary>
+            匹配数量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.MaxOverlap">
+            <summary>
+            最大重叠度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.SubPixel">
+            <summary>
+            亚像素算法
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.NumLevels">
+            <summary>
+            金字塔等级
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.Greediness">
+            <summary>
+            贪婪度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.ScaleRMin">
+            <summary>
+            行最小缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.ScaleRMax">
+            <summary>
+            行最大缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.ScaleCMin">
+            <summary>
+            列最小缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.ScaleCMax">
+            <summary>
+            列最大缩放
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchParams.ScaleMode">
+            <summary>
+            缩放模式
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Vision.Halcon.MatchResult">
+            <summary>
+            匹配结果
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchResult.Row">
+            <summary>
+            行
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchResult.Column">
+            <summary>
+            列
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchResult.Angle">
+            <summary>
+            角度(弧度)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchResult.Score">
+            <summary>
+            分数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchResult.ScaleR">
+            <summary>
+            行缩放系数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.MatchResult.ScaleC">
+            <summary>
+            列缩放系数
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Vision.Halcon.ShapeModel">
+            <summary>
+            模板匹配
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.#ctor">
+            <summary>
+            创建ShapeModel新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.#ctor(System.String)">
+            <summary>
+            创建ShapeModel新实例
+            </summary>
+            <param name="fileName">文件名</param>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ShapeModel.ModelID">
+            <summary>
+            模板ID
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ShapeModel.IsValid">
+            <summary>
+            模板有效性
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Vision.Halcon.ShapeModel._refRow">
+            <summary>
+            参考点行坐标
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Vision.Halcon.ShapeModel._refColumn">
+            <summary>
+            参考点列坐标
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Vision.Halcon.ShapeModel._modelContour">
+            <summary>
+            模板轮廓
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.GetModelOrigin(HalconDotNet.HTuple@,HalconDotNet.HTuple@)">
+            <summary>
+            获取模板参考位置
+            </summary>
+            <param name="referenceRow">参考点行坐标</param>
+            <param name="referenceColumn">参考点列坐标</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.GetModelContour(HalconDotNet.HObject@)">
+            <summary>
+            获取模板参考位置
+            </summary>
+            <param name="contour">轮廓</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.GetModelContourInfo">
+            <summary>
+            获取模板信息
+            </summary>
+            <returns>执行结果</returns>q
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.Create(HalconDotNet.HObject,vQkmLib.Vision.Halcon.ModelParams)">
+            <summary>
+            创建模板
+            </summary>
+            <param name="template">模板图像</param>
+            <param name="modelParams">模板参数</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.Find(HalconDotNet.HObject,vQkmLib.Vision.Halcon.MatchParams,vQkmLib.Vision.Halcon.MatchResult@,HalconDotNet.HObject@)">
+            <summary>
+            查找模板
+            </summary>
+            <param name="image">图像</param>
+            <param name="matchParams">匹配参数</param>
+            <param name="matchResult">匹配结果</param>
+            <param name="modelContour">模板轮廓</param>
+            <returns>匹配结果</returns>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.GetMatchParamsByModel">
+            <summary>
+            通过模板获取匹配参数
+            </summary>
+            <returns>模板参数</returns>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.Clear">
+            <summary>
+            清除模板资源
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.Load(System.String)">
+            <summary>
+            从文件中加载模板
+            </summary>
+            <param name="fileName">文件名</param>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.Save(System.String)">
+            <summary>
+            保存模板
+            </summary>
+            <param name="fileName">文件名</param>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ShapeModel.ModelParams">
+            <summary>
+            模板参数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ShapeModel.MatchParams">
+            <summary>
+            匹配参数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Vision.Halcon.ShapeModel.MatchResult">
+            <summary>
+            匹配结果
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.Dispose(System.Boolean)">
+            <summary>
+            释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:vQkmLib.Vision.Halcon.ShapeModel.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+    </members>
+</doc>

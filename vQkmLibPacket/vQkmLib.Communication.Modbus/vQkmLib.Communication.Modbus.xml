@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Communication.Modbus</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Communication.Modbus.IModbusMaster">
+            <summary>
+            IModbusRtuMaster接口定义
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadCoil(System.Byte,System.UInt16)">
+            <summary>
+            读取线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadCoils(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读取多个线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.WriteCoil(System.Byte,System.UInt16,System.Boolean)">
+            <summary>
+            写线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">线圈地址</param>
+            <param name="value">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.WriteCoils(System.Byte,System.UInt16,System.Boolean[])">
+            <summary>
+            写多个线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">开始地址</param>
+            <param name="data">写入的数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadHoldingRegister(System.Byte,System.UInt16)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadHoldingRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.WriteHoldingRegister(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            写保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="value">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.WriteHoldingRegisters(System.Byte,System.UInt16,System.UInt16[])">
+            <summary>
+            写保持寄存器(多个数据)
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">开始地址</param>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadInputRegister(System.Byte,System.UInt16)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadInputRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadDiscreteRegister(System.Byte,System.UInt16)">
+            <summary>
+            读离散寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.IModbusMaster.ReadDiscreteRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读离散寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="T:vQkmLib.Communication.Modbus.ModbusRtuMaster">
+            <summary>
+            ModbusRtuMaster实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Communication.Modbus.ModbusRtuMaster._modbusLock">
+            <summary>
+            通信锁
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)">
+            <summary>
+            创建ModbusRtuMaster新实例
+            </summary>
+            <param name="portName">端口名</param>
+            <param name="baudRate">波特率</param>
+            <param name="parity">校验方式</param>
+            <param name="dataBits">字节位</param>
+            <param name="stopBits">停止位</param>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusRtuMaster.PortName">
+            <summary>
+            串口号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusRtuMaster.BaudRate">
+            <summary>
+            串口波特率
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusRtuMaster.Parity">
+            <summary>
+            校验方式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusRtuMaster.DataBits">
+            <summary>
+            位数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusRtuMaster.StopBits">
+            <summary>
+            停止位
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusRtuMaster.WriteTimeout">
+            <summary>
+            写超时
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadTimeout">
+            <summary>
+            读超时
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadCoil(System.Byte,System.UInt16)">
+            <summary>
+            读取线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadCoils(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读取多个线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.WriteCoil(System.Byte,System.UInt16,System.Boolean)">
+            <summary>
+            写线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">线圈地址</param>
+            <param name="value">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.WriteCoils(System.Byte,System.UInt16,System.Boolean[])">
+            <summary>
+            写多个线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">开始地址</param>
+            <param name="data">写入的数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadHoldingRegister(System.Byte,System.UInt16)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadHoldingRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.WriteHoldingRegister(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            写保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="value">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.WriteHoldingRegisters(System.Byte,System.UInt16,System.UInt16[])">
+            <summary>
+            写保持寄存器(多个数据)
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">开始地址</param>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadInputRegister(System.Byte,System.UInt16)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadInputRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadDiscreteRegister(System.Byte,System.UInt16)">
+            <summary>
+            读离散寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusRtuMaster.ReadDiscreteRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读离散寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="T:vQkmLib.Communication.Modbus.ModbusTcpMaster">
+            <summary>
+            TCPModbus
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Communication.Modbus.ModbusTcpMaster._modbusLock">
+            <summary>
+            通信锁
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Communication.Modbus.ModbusTcpMaster._Master">
+            <summary>
+            Modbus主机接口
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Communication.Modbus.ModbusTcpMaster._tcpClient">
+            <summary>
+            tcp接口
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.#ctor(System.String,System.UInt16)">
+            <summary>
+            创建ModbusTcpMaster新实例
+            </summary>
+            <param name="ip">IP地址</param>
+            <param name="port">端口号</param>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusTcpMaster.IP">
+            <summary>
+            IP
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusTcpMaster.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusTcpMaster.WriteTimeout">
+            <summary>
+            写超时
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadTimeout">
+            <summary>
+            读超时
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadCoil(System.Byte,System.UInt16)">
+            <summary>
+            读取线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadCoils(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读取多个线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.WriteCoil(System.Byte,System.UInt16,System.Boolean)">
+            <summary>
+            写线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">线圈地址</param>
+            <param name="value">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.WriteCoils(System.Byte,System.UInt16,System.Boolean[])">
+            <summary>
+            写多个线圈
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">开始地址</param>
+            <param name="data">写入的数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadHoldingRegister(System.Byte,System.UInt16)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadHoldingRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.WriteHoldingRegister(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            写保持寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="value">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.WriteHoldingRegisters(System.Byte,System.UInt16,System.UInt16[])">
+            <summary>
+            写保持寄存器(多个数据)
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">开始地址</param>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadInputRegister(System.Byte,System.UInt16)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadInputRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读输入寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadDiscreteRegister(System.Byte,System.UInt16)">
+            <summary>
+            读离散寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <returns>读取到的结果</returns>
+        </member>
+        <member name="M:vQkmLib.Communication.Modbus.ModbusTcpMaster.ReadDiscreteRegisters(System.Byte,System.UInt16,System.UInt16)">
+            <summary>
+            读离散寄存器
+            </summary>
+            <param name="slaveAddress">从站地址</param>
+            <param name="registerAddress">寄存器地址</param>
+            <param name="count">读取的数量</param>
+            <returns>读取到的结果</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1387 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Camera</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Camera.EnumEntryDescription">
+            <summary>
+            枚举内容入口
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumEntryDescription.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumEntryDescription.Value">
+            <summary>
+            数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumEntryDescription.ToolTip">
+            <summary>
+            工具提示
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumEntryDescription.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumEntryDescription.DisplayName">
+            <summary>
+            显示名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumEntryDescription.ImposedAccessMode">
+            <summary>
+            访问权限
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumEntryDescription.#ctor">
+            <summary>
+            创建EnumEntryDescription新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumEntryDescription.#ctor(System.String)">
+            <summary>
+            创建EnumEntryDescription新实例
+            </summary>
+            <param name="name">名称</param>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumEntryDescription.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建EnumEntryDescription新实例
+            </summary>
+            <param name="name">名称</param>
+            <param name="displayName">显示名</param>
+            <param name="toolTip">提示</param>
+            <param name="description">描述</param>
+            <param name="imposedAccessMode">访问权限</param>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumEntryDescription.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.EnumNodeDescription">
+            <summary>
+            枚举节点内容
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumNodeDescription.Item(System.String)">
+            <summary>
+            EnumEntryDescription集合访问器
+            </summary>
+            <param name="name">名称</param>
+            <returns>EnumEntryDescription实例</returns>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumNodeDescription.Item(System.Int64)">
+            <summary>
+            EnumEntryDescription集合访问器
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumNodeDescription.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.EnumNodeDescription.EnumEntries">
+            <summary>
+            枚举列表
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumNodeDescription.#ctor">
+            <summary>
+            创建EnumNodeDescription新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumNodeDescription.#ctor(System.String)">
+            <summary>
+            创建EnumNodeDescription新实例
+            </summary>
+            <param name="name">名称</param>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumNodeDescription.GetValue(System.String)">
+            <summary>
+            获取枚举参数整型数值
+            </summary>
+            <param name="name">枚举名</param>
+            <returns>枚举参数整型数值</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumNodeDescription.GetName(System.Int64)">
+            <summary>
+            获取枚举参数名字
+            </summary>
+            <param name="value">枚举参数值</param>
+            <returns>枚举参数名</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.EnumNodeDescription.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.NodeDescription">
+            <summary>
+            相机节点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.ToolTip">
+            <summary>
+            工具提示
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.DisplayName">
+            <summary>
+            显示名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.Visibility">
+            <summary>
+            可见性
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.ImposedAccessMode">
+            <summary>
+            访问权限
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.NodeType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeDescription.Value">
+            <summary>
+            数值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.NodeDescription.#ctor">
+            <summary>
+            创建NodeDescription新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.NodeDescription.#ctor(System.String)">
+            <summary>
+            创建NodeDescription新实例
+            </summary>
+            <param name="name">名称</param>
+        </member>
+        <member name="M:vQkmLib.Camera.NodeDescription.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建NodeDescription新实例
+            </summary>
+            <param name="name">名称</param>
+            <param name="displayName">显示名</param>
+            <param name="toolTip">提示</param>
+            <param name="description">描述</param>
+            <param name="visibility">可见性</param>
+            <param name="imposedAccessMode">访问权限</param>
+        </member>
+        <member name="M:vQkmLib.Camera.NodeDescription.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.CategoryDescription">
+            <summary>
+            XML种类描述
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.Item(System.String)">
+            <summary>
+            NodeDescription集合访问器
+            </summary>
+            <param name="name">名称</param>
+            <returns>NodeDescription实例</returns>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.Name">
+            <summary>
+            种类名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.ToolTip">
+            <summary>
+            工具提示
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.DisplayName">
+            <summary>
+            显示名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.Visibility">
+            <summary>
+            可见性
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.ImposedAccessMode">
+            <summary>
+            访问权限
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.CategoryDescription.NodeDescriptions">
+            <summary>
+            节点列表
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.CategoryDescription.#ctor">
+            <summary>
+            创建CategoryDescription新实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.CategoryDescription.#ctor(System.String)">
+            <summary>
+            创建CategoryDescription新实例
+            </summary>
+            <param name="name">名称</param>
+        </member>
+        <member name="M:vQkmLib.Camera.CategoryDescription.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建CategoryDescription新实例
+            </summary>
+            <param name="name">名称</param>
+            <param name="displayName">显示名</param>
+            <param name="toolTip">提示</param>
+            <param name="description">描述</param>
+            <param name="visibility">可见性</param>
+            <param name="imposedAccessMode">访问权限</param>
+        </member>
+        <member name="M:vQkmLib.Camera.CategoryDescription.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.CameraDescription">
+            <summary>
+            相机XML描述
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.CameraDescription.GetCategoryDescription(System.Xml.XmlNode,vQkmLib.Camera.CategoryDescription@)">
+            <summary>
+            获取CategoryDescription
+            </summary>
+            <param name="xmlNode">XML节点</param>
+            <param name="categoryDescription">CategoryDescription</param>
+        </member>
+        <member name="M:vQkmLib.Camera.CameraDescription.LoadfromFile(System.Xml.XmlDocument)">
+            <summary>
+            从XML文件中解析相机信息
+            </summary>
+            <param name="doc">xml文档实例</param>
+            <returns>CameraDescription 实例</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.CameraDescription.LoadfromFile(System.String)">
+            <summary>
+            从本地加载XML文档
+            </summary>
+            <param name="file">本地文档</param>
+            <returns>CameraDescription 实例</returns>
+        </member>
+        <member name="P:vQkmLib.Camera.CameraDescription.Item(System.String)">
+            <summary>
+            CategoryDescription集合访问器
+            </summary>
+            <param name="name">名称</param>
+            <returns>CategoryDescription实例</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.CameraDescription.FindNode(System.String)">
+            <summary>
+            查找节点
+            </summary>
+            <param name="nodeName">节点名</param>
+            <returns>NodeDescription实例</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.CameraDescription.FindNode(System.String,System.String)">
+            <summary>
+            查找节点
+            </summary>
+            <param name="categoryName">类型实例</param>
+            <param name="nodeName">节点名</param>
+            <returns>NodeDescription实例</returns>
+        </member>
+        <member name="P:vQkmLib.Camera.CameraDescription.CategoryDescriptions">
+            <summary>
+            CategoryDescription集合
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.CameraDescription.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>字符串结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.DeviceType.Unknown">
+            <summary>
+            未知设备
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.DeviceType.USBDevice">
+            <summary>
+            USB设备
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.DeviceType.GigeDevice">
+            <summary>
+            GIGE设备
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.DeviceType.CameraLinkDevice">
+            <summary>
+            CameraLink设备
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.PixelFormatType">
+            <summary>
+            像素类型
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO8">
+            <summary>
+            GVSP_PIX_MONO8
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO8_SIGNED">
+            <summary>
+            GVSP_PIX_MONO8_SIGNED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGR8">
+            <summary>
+            GVSP_PIX_BAYGR8
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYRG8">
+            <summary>
+            GVSP_PIX_BAYRG8
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGB8">
+            <summary>
+            GVSP_PIX_BAYGB8
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYBG8">
+            <summary>
+            GVSP_PIX_BAYBG8
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_MONO10_PACKED">
+            <summary>
+            PFNC_PIX_MONO10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYBG10_PACKED">
+            <summary>
+            PFNC_PIX_BAYBG10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYGB10_PACKED">
+            <summary>
+            PFNC_PIX_BAYGB10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYGR10_PACKED">
+            <summary>
+            PFNC_PIX_BAYGR10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYRG10_PACKED">
+            <summary>
+            PFNC_PIX_BAYRG10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO10_PACKED">
+            <summary>
+            GVSP_PIX_MONO10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO12_PACKED">
+            <summary>
+            GVSP_PIX_MONO12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGR10_PACKED">
+            <summary>
+            GVSP_PIX_BAYGR10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYRG10_PACKED">
+            <summary>
+            GVSP_PIX_BAYRG10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGB10_PACKED">
+            <summary>
+            GVSP_PIX_BAYGB10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYBG10_PACKED">
+            <summary>
+            GVSP_PIX_BAYBG10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGR12_PACKED">
+            <summary>
+            GVSP_PIX_BAYGR12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYRG12_PACKED">
+            <summary>
+            GVSP_PIX_BAYRG12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGB12_PACKED">
+            <summary>
+            GVSP_PIX_BAYGB12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYBG12_PACKED">
+            <summary>
+            GVSP_PIX_BAYBG12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_MONO12_PACKED">
+            <summary>
+            PFNC_PIX_MONO12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYBG12_PACKED">
+            <summary>
+            PFNC_PIX_BAYBG12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYGB12_PACKED">
+            <summary>
+            PFNC_PIX_BAYGB12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYGR12_PACKED">
+            <summary>
+            PFNC_PIX_BAYGR12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BAYRG12_PACKED">
+            <summary>
+            PFNC_PIX_BAYRG12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO10">
+            <summary>
+            GVSP_PIX_MONO10
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO12">
+            <summary>
+            GVSP_PIX_MONO12
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO16">
+            <summary>
+            GVSP_PIX_MONO16
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGR10">
+            <summary>
+            GVSP_PIX_BAYGR10
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYRG10">
+            <summary>
+            GVSP_PIX_BAYRG10
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGB10">
+            <summary>
+            GVSP_PIX_BAYGB10
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYBG10">
+            <summary>
+            GVSP_PIX_BAYBG10
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGR12">
+            <summary>
+            GVSP_PIX_BAYGR12
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYRG12">
+            <summary>
+            GVSP_PIX_BAYRG12
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGB12">
+            <summary>
+            GVSP_PIX_BAYGB12
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYBG12">
+            <summary>
+            GVSP_PIX_BAYBG12
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_MONO14">
+            <summary>
+            GVSP_PIX_MONO14
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGR16">
+            <summary>
+            GVSP_PIX_BAYGR16
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYRG16">
+            <summary>
+            GVSP_PIX_BAYRG16
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYGB16">
+            <summary>
+            GVSP_PIX_BAYGB16
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BAYBG16">
+            <summary>
+            GVSP_PIX_BAYBG16
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_YUV411_PACKED">
+            <summary>
+            GVSP_PIX_YUV411_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_YUV422_PACKED">
+            <summary>
+            GVSP_PIX_YUV422_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_YUV422_YUYV_PACKED">
+            <summary>
+            GVSP_PIX_YUV422_YUYV_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB8_PACKED">
+            <summary>
+            GVSP_PIX_RGB8_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BGR8_PACKED">
+            <summary>
+            GVSP_PIX_BGR8_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_YUV444_PACKED">
+            <summary>
+            GVSP_PIX_YUV444_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB8_PLANAR">
+            <summary>
+            GVSP_PIX_RGB8_PLANAR
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGR10_P">
+            <summary>
+            PFNC_PIX_BGR10_P
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGB10_P">
+            <summary>
+            PFNC_PIX_RGB10_P
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGBA8_PACKED">
+            <summary>
+            GVSP_PIX_RGBA8_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BGRA8_PACKED">
+            <summary>
+            GVSP_PIX_BGRA8_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB10V1_PACKED">
+            <summary>
+            GVSP_PIX_RGB10V1_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB10V2_PACKED">
+            <summary>
+            GVSP_PIX_RGB10V2_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB8A">
+            <summary>
+            GVSP_PIX_RGB8A
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB12V1_PACKED">
+            <summary>
+            GVSP_PIX_RGB12V1_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGR12_P">
+            <summary>
+            PFNC_PIX_BGR12_P
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGB12_P">
+            <summary>
+            PFNC_PIX_RGB12_P
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGRA10_PACKED">
+            <summary>
+            PFNC_PIX_BGRA10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGBA10_PACKED">
+            <summary>
+            PFNC_PIX_RGBA10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BGR16_PACKED_INTERNAL">
+            <summary>
+            GVSP_PIX_BGR16_PACKED_INTERNAL
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB10_PACKED">
+            <summary>
+            GVSP_PIX_RGB10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BGR10_PACKED">
+            <summary>
+            GVSP_PIX_BGR10_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB12_PACKED">
+            <summary>
+            GVSP_PIX_RGB12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_BGR12_PACKED">
+            <summary>
+            GVSP_PIX_BGR12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB10_PLANAR">
+            <summary>
+            GVSP_PIX_RGB10_PLANAR
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB12_PLANAR">
+            <summary>
+            GVSP_PIX_RGB12_PLANAR
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB16_PLANAR">
+            <summary>
+            GVSP_PIX_RGB16_PLANAR
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.GVSP_PIX_RGB16_PACKED">
+            <summary>
+            GVSP_PIX_RGB16_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGRA12_PACKED">
+            <summary>
+            PFNC_PIX_BGRA12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGBA12_PACKED">
+            <summary>
+            PFNC_PIX_RGBA12_PACKED
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGRA10">
+            <summary>
+            PFNC_PIX_BGRA10
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGRA12">
+            <summary>
+            PFNC_PIX_BGRA12
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGRA14">
+            <summary>
+            PFNC_PIX_BGRA14
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_BGRA16">
+            <summary>
+            PFNC_PIX_BGRA16
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGBA10">
+            <summary>
+            PFNC_PIX_RGBA10
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGBA12">
+            <summary>
+            PFNC_PIX_RGBA12
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGBA14">
+            <summary>
+            PFNC_PIX_RGBA14
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.PFNC_PIX_RGBA16">
+            <summary>
+            PFNC_PIX_RGBA16
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.PixelFormatType.Unknown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.ImageGrabbedEventArgs">
+            <summary>
+            图像采集完成事件参数
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ImageGrabbedEventArgs.#ctor(vQkmLib.Camera.ImageFrame)">
+            <summary>
+            创建ImageGrabbedEventArgs新实例
+            </summary>
+            <param name="imageFrame">图像帧</param>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageGrabbedEventArgs.ImageFrame">
+            <summary>
+            图像帧
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.NodeValueChangedEventArgs">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.NodeValueChangedEventArgs.#ctor(System.Object,System.Object)">
+            <summary>
+            节点数值改变事件
+            </summary>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeValueChangedEventArgs.OldValue">
+            <summary>
+            旧值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.NodeValueChangedEventArgs.NewValue">
+            <summary>
+            新值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.DeviceInfo">
+            <summary>
+            设备参数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.IPAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.SubnetMask">
+            <summary>
+            子网掩码
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.GatewayAddress">
+            <summary>
+            网关地址
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.MACAddress">
+            <summary>
+            MAC地址
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.AdapterMACAddress">
+            <summary>
+            网卡MAC
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.AdapterIPAddress">
+            <summary>
+            网卡IP
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.CameraID">
+            <summary>
+            相机ID
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.DeviceID">
+            <summary>
+            设备ID
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.InUse">
+            <summary>
+            使用标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.SerialNumber">
+            <summary>
+            序列号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.Manufacturer">
+            <summary>
+            制造商
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.ModelName">
+            <summary>
+            型号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.DeviceName">
+            <summary>
+            设备名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.DeviceInfo.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.DeviceInfo.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:vQkmLib.Camera.IGigeDeviceInfo">
+            <summary>
+            Gige设备信息
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IGigeDeviceInfo.IPAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IGigeDeviceInfo.SubnetMask">
+            <summary>
+            子网掩码
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IGigeDeviceInfo.GatewayAddress">
+            <summary>
+            网关地址
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IGigeDeviceInfo.MACAddress">
+            <summary>
+            MAC地址
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IGigeDeviceInfo.AdapterMACAddress">
+            <summary>
+            网卡MAC
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IGigeDeviceInfo.AdapterIPAddress">
+            <summary>
+            网卡IP
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.IUSBDeviceInfo">
+            <summary>
+            USB设备信息
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IUSBDeviceInfo.CameraID">
+            <summary>
+            相机ID
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IUSBDeviceInfo.DeviceID">
+            <summary>
+            设备ID
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IUSBDeviceInfo.InUse">
+            <summary>
+            使用中标志
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.ICamera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ICamera.DeviceInfo">
+            <summary>
+            设备信息
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ICamera.IsConnected">
+            <summary>
+            相机已连接标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ICamera.IsGrabbing">
+            <summary>
+            采集标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ICamera.NodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.ICamera.CameraOpened">
+            <summary>
+            相机打开事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.ICamera.CameraClosed">
+            <summary>
+            相机关闭事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.ICamera.ConnectionLost">
+            <summary>
+            连接断开事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.ICamera.ImageGrabbed">
+            <summary>
+            图像采集完成事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ICamera.Connect(System.String)">
+            <summary>
+            连接相机
+            </summary>
+            <param name="serialNumber">相机序列号</param>
+        </member>
+        <member name="M:vQkmLib.Camera.ICamera.Disconnet">
+            <summary>
+            断开连接
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ICamera.StartGrabbing">
+            <summary>
+            开始采集
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ICamera.StopGrabbing">
+            <summary>
+            停止采集
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ICamera.SetToOneFrameMode">
+            <summary>
+            设置为单帧模式
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ICamera.GetOneFrame(System.Int32)">
+            <summary>
+            获取单帧图像
+            </summary>
+            <param name="timeout">超时时间(毫秒),若timeout小于等于0,则无限等待</param>
+            <returns>采集到的图像帧</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.ICamera.GetDeviceInfos">
+            <summary>
+            获取设备信息
+            </summary>
+            <returns>设备列表</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.ImageFrame">
+            <summary>
+            图像帧
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.PixelFormat">
+            <summary>
+            图像类型
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.Width">
+            <summary>
+            图像宽度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.Height">
+            <summary>
+            图像高度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.Channel">
+            <summary>
+            通道数
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.OffsetX">
+            <summary>
+            X偏移
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.OffsetY">
+            <summary>
+            Y偏移
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.ImageBuffer">
+            <summary>
+            图像缓存
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.TimeStampLow">
+            <summary>
+            时间戳(单位:100纳秒)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.TimeStampHigh">
+            <summary>
+            时间戳(单位:100S)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.ImageFrame.FreeImagePtr">
+            <summary>
+            释放图像
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ImageFrame.GetChannelCount(vQkmLib.Camera.PixelFormatType)">
+            <summary>
+            获取通道数量
+            </summary>
+            <param name="pixelFormat">像素格式</param>
+            <returns>通道数</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.INode">
+            <summary>
+            节点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.INode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="E:vQkmLib.Camera.INode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.IIntegerNode">
+            <summary>
+            整型节点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IIntegerNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IIntegerNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IIntegerNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IIntegerNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.IFloatNode">
+            <summary>
+            浮点数节点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IFloatNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IFloatNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IFloatNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IFloatNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.IBooleanNode">
+            <summary>
+            布尔节点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IBooleanNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.IStringNode">
+            <summary>
+            字符串节点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IStringNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.ICommandNode">
+            <summary>
+            指令节点
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.ICommandNode.Execute">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.IEnumNode">
+            <summary>
+            枚举节点
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IEnumNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IEnumNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.IEnumNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.IEnumNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.IEnumNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.INodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.DeviceVendorName">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.DeviceModelName">
+            <summary>
+            设备型号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.DeviceVersion">
+            <summary>
+            设备版本
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.DeviceSerialNumber">
+            <summary>
+            设备序列号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.PixelFormat">
+            <summary>
+            像素格式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.AcquisitionMode">
+            <summary>
+            采集模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.AcquisitionStart">
+            <summary>
+            开始采集
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.AcquisitionStop">
+            <summary>
+            停止采集
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.TriggerMode">
+            <summary>
+            触发模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.TriggerSource">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.TriggerActivation">
+            <summary>
+            有效触发信号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.TriggerDelay">
+            <summary>
+            触发延迟(US)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.TriggerSoftware">
+            <summary>
+            软触发
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.ExposureTime">
+            <summary>
+            曝光时间(US)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.ExposureAuto">
+            <summary>
+            自动曝光模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.Gain">
+            <summary>
+            增益值(dB)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.GainAuto">
+            <summary>
+            自动增益模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.LineSelector">
+            <summary>
+            线选择器
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.LineMode">
+            <summary>
+            线模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.LineStatus">
+            <summary>
+            线状态
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.LineSource">
+            <summary>
+            线触发源(输出模式下,由哪种事件所导致的输出触发)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.INodeCollection.StrobeEnable">
+            <summary>
+            使能到实际的IO线
+            </summary>
+        </member>
+    </members>
+</doc>

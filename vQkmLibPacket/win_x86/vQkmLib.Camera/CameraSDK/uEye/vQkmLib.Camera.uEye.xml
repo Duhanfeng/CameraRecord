@@ -1,0 +1,1753 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Camera.uEye</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Camera.uEye.CameraAdaptive">
+            <summary>
+            相机适配
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.CameraAdaptive.GetDeviceInfo(uEye.Types.CameraInformation)">
+            <summary>
+            获取设备信息
+            </summary>
+            <param name="info">uEye格式的设备信息</param>
+            <returns>设备信息</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.CameraAdaptive.ColorMode2PixelFormatType(uEye.Defines.ColorMode)">
+            <summary>
+            颜色模式转像素类型
+            </summary>
+            <param name="colorMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.CameraAdaptive.PixelFormatType2ColorMode(vQkmLib.Camera.PixelFormatType)">
+            <summary>
+            像素类型转颜色模式
+            </summary>
+            <param name="pixelFormatType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.MemoryHelper.AllocImageMems(uEye.Camera,System.Int32)">
+            <summary>
+            分配内存空间
+            </summary>
+            <param name="camera"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.MemoryHelper.FreeImageMems(uEye.Camera)">
+            <summary>
+            释放内存空间
+            </summary>
+            <param name="camera"></param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.MemoryHelper.InitSequence(uEye.Camera)">
+            <summary>
+            初始化队列
+            </summary>
+            <param name="camera"></param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.MemoryHelper.ClearSequence(uEye.Camera)">
+            <summary>
+            清除队列
+            </summary>
+            <param name="camera"></param>
+            <returns></returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.DeviceVendorNameNode">
+            <summary>
+            设备厂商名节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.DeviceVendorNameNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceVendorNameNode.#ctor(uEye.Camera,System.String)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="deviceVendorName">相机厂商名</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.DeviceVendorNameNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceVendorNameNode.OnNodeValueChanged(System.Int64,System.Int64)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVendorNameNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVendorNameNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVendorNameNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVendorNameNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVendorNameNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVendorNameNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceVendorNameNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVendorNameNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.DeviceModelNameNode">
+            <summary>
+            设备厂商名节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.DeviceModelNameNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceModelNameNode.#ctor(uEye.Camera,System.String)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="deviceModelName">设备型号名</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.DeviceModelNameNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceModelNameNode.OnNodeValueChanged(System.Int64,System.Int64)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceModelNameNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceModelNameNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceModelNameNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceModelNameNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceModelNameNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceModelNameNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceModelNameNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceModelNameNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.DeviceVersionNode">
+            <summary>
+            设备厂商名节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.DeviceVersionNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceVersionNode.#ctor(uEye.Camera,System.String)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="deviceVersion">设备版本</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.DeviceVersionNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceVersionNode.OnNodeValueChanged(System.Int64,System.Int64)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVersionNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVersionNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVersionNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVersionNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVersionNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVersionNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceVersionNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceVersionNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.DeviceSerialNumberNode">
+            <summary>
+            设备序列号节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.DeviceSerialNumberNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceSerialNumberNode.#ctor(uEye.Camera,System.String)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="deviceVersion">设备版本</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.DeviceSerialNumberNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceSerialNumberNode.OnNodeValueChanged(System.Int64,System.Int64)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceSerialNumberNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceSerialNumberNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceSerialNumberNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceSerialNumberNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceSerialNumberNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceSerialNumberNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.DeviceSerialNumberNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.DeviceSerialNumberNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.WidthNode">
+            <summary>
+            宽度节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.WidthNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.WidthNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.WidthNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.WidthNode.OnNodeValueChanged(System.Int64,System.Int64)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.WidthNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.WidthNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.HeightNode">
+            <summary>
+            高度节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.HeightNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.HeightNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.HeightNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.HeightNode.OnNodeValueChanged(System.Int64,System.Int64)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.HeightNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.HeightNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.PixelFormatNode">
+            <summary>
+            像素格式节点
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.IsColorModeSupported(uEye.Camera,uEye.Defines.ColorMode)">
+            <summary>
+            查询是否支持颜色模式
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="colorMode">颜色模式</param>
+            <returns>支持结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.GetColorConvertMode(uEye.Camera,uEye.Defines.ColorMode)">
+            <summary>
+            获取支持的颜色转换模式
+            </summary>
+            <param name="camera">相机实例</param>
+            <param name="colorMode">颜色模式</param>
+            <returns>支持的颜色转换模式</returns>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.PixelFormatNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.PixelFormatNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.UpdateNodes(System.Collections.Generic.Dictionary{System.Int64,System.String}@,System.Int64@)">
+            <summary>
+            更新节点值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.PixelFormatNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.PixelFormatNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.TriggerModeNode">
+            <summary>
+            触发模式节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.TriggerModeNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerModeNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.TriggerModeNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerModeNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerModeNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerModeNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerModeNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerModeNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.TriggerSourceNode">
+            <summary>
+            触发模式节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.TriggerSourceNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSourceNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.TriggerSourceNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSourceNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSourceNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSourceNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSourceNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSourceNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.TriggerSoftwareNode">
+            <summary>
+            触发模式节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.TriggerSoftwareNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSoftwareNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.TriggerSoftwareNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSoftwareNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSoftwareNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSoftwareNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSoftwareNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSoftwareNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSoftwareNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.TriggerSoftwareNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSoftwareNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.TriggerSoftwareNode.Execute">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.ExposureTimeNode">
+            <summary>
+            曝光节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.ExposureTimeNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureTimeNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.ExposureTimeNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureTimeNode.OnNodeValueChanged(System.Double,System.Double)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureTimeNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureTimeNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.ExposureAutoNode">
+            <summary>
+            自动曝光节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.ExposureAutoNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureAutoNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.ExposureAutoNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureAutoNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureAutoNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.ExposureAutoNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureAutoNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.ExposureAutoNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.GainNode">
+            <summary>
+            增益节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.GainNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.GainNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainNode.OnNodeValueChanged(System.Double,System.Double)">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.Increment">
+            <summary>
+            递增量
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainNode.Value">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.GainAutoNode">
+            <summary>
+            自动增益节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.GainAutoNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainAutoNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.GainAutoNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainAutoNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainAutoNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.GainAutoNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainAutoNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.GainAutoNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.LineSelectorNode">
+            <summary>
+            线选择器节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.LineSelectorNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineSelectorNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.LineSelectorNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineSelectorNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineSelectorNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineSelectorNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineSelectorNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineSelectorNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.LineModeNode">
+            <summary>
+            线模式节点
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.LineModeNode._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineModeNode.#ctor(uEye.Camera)">
+            <summary>
+            创建IntegerNode新实例
+            </summary>
+            <param name="camera">相机实例</param>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.LineModeNode.NodeValueChanged">
+            <summary>
+            节点值改变事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineModeNode.OnNodeValueChanged(System.Collections.Generic.KeyValuePair{System.Int64,System.String},System.Collections.Generic.KeyValuePair{System.Int64,System.String})">
+            <summary>
+            触发节点值改变事件
+            </summary>
+            <param name="oldValue">旧值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.IsEmpty">
+            <summary>
+            空标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.FullName">
+            <summary>
+            节点全名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.Name">
+            <summary>
+            节点名
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.IsReadable">
+            <summary>
+            可读
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.IsWritable">
+            <summary>
+            可写
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.IsAvailable">
+            <summary>
+            可用
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineModeNode.ParseAndSetValue(System.String)">
+            <summary>
+            设置值
+            </summary>
+            <param name="value">设置的值</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.EnumNodeValues">
+            <summary>
+            所有支持的数值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.IntValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.LineModeNode.StringValue">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineModeNode.CanSetValue(System.String)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.LineModeNode.CanSetValue(System.Int64)">
+            <summary>
+            判断是否能设置
+            </summary>
+            <param name="value">设置值</param>
+            <returns>允许结果</returns>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.NodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.NodeCollection._Camera">
+            <summary>
+            相机实例
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.NodeCollection.#ctor(uEye.Camera)">
+            <summary>
+            创建NodeCollection新实例
+            </summary>
+            <param name="camera">相机实</param>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.DeviceVendorName">
+            <summary>
+            设备厂商
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.DeviceModelName">
+            <summary>
+            设备型号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.DeviceVersion">
+            <summary>
+            设备版本
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.DeviceSerialNumber">
+            <summary>
+            设备序列号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.PixelFormat">
+            <summary>
+            像素格式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.AcquisitionMode">
+            <summary>
+            采集模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.AcquisitionStart">
+            <summary>
+            开始采集
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.AcquisitionStop">
+            <summary>
+            停止采集
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.TriggerMode">
+            <summary>
+            触发模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.TriggerSource">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.TriggerActivation">
+            <summary>
+            有效触发信号
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.TriggerDelay">
+            <summary>
+            触发延迟(US)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.TriggerSoftware">
+            <summary>
+            软触发
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.ExposureTime">
+            <summary>
+            曝光时间(US)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.ExposureAuto">
+            <summary>
+            自动曝光模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.Gain">
+            <summary>
+            增益值(dB)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.GainAuto">
+            <summary>
+            自动增益模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.LineSelector">
+            <summary>
+            线选择器
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.LineMode">
+            <summary>
+            线模式
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.LineStatus">
+            <summary>
+            线状态
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.LineSource">
+            <summary>
+            线触发源(输出模式下,由哪种事件所导致的输出触发)
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.NodeCollection.StrobeEnable">
+            <summary>
+            使能到实际的IO线
+            </summary>
+        </member>
+        <member name="T:vQkmLib.Camera.uEye.uEyeCamera">
+            <summary>
+            IDS相机
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Dispose(System.Boolean)">
+            <summary>
+            释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.uEyeCamera._LockObject">
+            <summary>
+            线程锁
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.uEyeCamera._Camera">
+            <summary>
+            相机接口
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.uEyeCamera.DeviceInfo">
+            <summary>
+            设备信息
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.uEyeCamera.IsConnected">
+            <summary>
+            相机已连接标志
+            </summary>
+            <remarks>
+            只有调用MV_CC_CreateDevice_NET之后,MV_CC_IsDeviceConnected_NET才会返回正确的结果
+            </remarks>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.uEyeCamera.IsGrabbing">
+            <summary>
+            采集标志
+            </summary>
+        </member>
+        <member name="P:vQkmLib.Camera.uEye.uEyeCamera.NodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.uEyeCamera.seqBufferCount">
+            <summary>
+            缓冲区数量
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.uEyeCamera.CameraOpened">
+            <summary>
+            相机打开事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.uEyeCamera.CameraClosed">
+            <summary>
+            相机关闭事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.uEyeCamera.ConnectionLost">
+            <summary>
+            连接断开事件
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.uEyeCamera._isImageCallBackRegistered">
+            <summary>
+            已注册相机回调标志
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.uEyeCamera._ImageGrabbed">
+            <summary>
+            相机采集完成事件
+            </summary>
+        </member>
+        <member name="E:vQkmLib.Camera.uEye.uEyeCamera.ImageGrabbed">
+            <summary>
+            图像采集完成事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.OnCameraOpened">
+            <summary>
+            触发相机打开事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.OnCameraClosed">
+            <summary>
+            触发相机关闭事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.OnConnectionLost">
+            <summary>
+            触发相机丢失事件
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.OnImageGrabbed(vQkmLib.Camera.ImageFrame)">
+            <summary>
+            图像采集完成事件
+            </summary>
+            <param name="imageFrame"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Camera_EventDeviceRemove(System.Object,System.EventArgs)">
+            <summary>
+            设备移除事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Camera_EventDeviceReconnect(System.Object,System.EventArgs)">
+            <summary>
+            设备重连事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Camera_EventFrame(System.Object,System.EventArgs)">
+            <summary>
+            采集完成事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.GetImageChannel(uEye.Defines.ColorMode)">
+            <summary>
+            获取图像通道
+            </summary>
+            <param name="colorMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.GetImageFrame">
+            <summary>
+            获取图像帧
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Connect(System.String)">
+            <summary>
+            连接相机
+            </summary>
+            <param name="serialNumber">相机序列号</param>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Connect(System.Int32)">
+            <summary>
+            连接
+            </summary>
+            <param name="deviceID">设备ID</param>
+            <returns>执行结果</returns>
+            <remarks>支持USB相机调用</remarks>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.Disconnet">
+            <summary>
+            断开连接
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.StartGrabbing">
+            <summary>
+            开始采集
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.StopGrabbing">
+            <summary>
+            停止采集
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.SetToOneFrameMode">
+            <summary>
+            设置为单帧模式
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.GetOneFrame(System.Int32)">
+            <summary>
+            获取单帧图像
+            </summary>
+            <param name="timeout">超时时间(毫秒),对于IDS相机,超时参数无效</param>
+            <returns>采集到的图像帧</returns>
+        </member>
+        <member name="F:vQkmLib.Camera.uEye.uEyeCamera._DeviceInfos">
+            <summary>
+            设备信息
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.GetDeviceInfos">
+            <summary>
+            获取设备信息
+            </summary>
+            <returns>设备列表</returns>
+        </member>
+        <member name="M:vQkmLib.Camera.uEye.uEyeCamera.ToString">
+            <summary>
+            转为字符串
+            </summary>
+            <returns>相机名</returns>
+        </member>
+    </members>
+</doc>

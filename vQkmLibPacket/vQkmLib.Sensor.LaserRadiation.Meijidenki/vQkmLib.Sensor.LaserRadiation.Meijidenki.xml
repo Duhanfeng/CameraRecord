@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Sensor.LaserRadiation.Meijidenki</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33">
+            <summary>
+            MLD33控制实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.serialPort">
+            <summary>
+            串口实例
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.distanceValue">
+            <summary>
+            当前采集的距离
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.isContinueMode">
+            <summary>
+            连续测量模式
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.isNewMessage">
+            <summary>
+            新消息标志
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.lockObj">
+            <summary>
+            线程锁
+            </summary>
+        </member>
+        <member name="F:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.recvFifo">
+            <summary>
+            接收缓冲区
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.#ctor(System.String)">
+            <summary>
+            串口名
+            </summary>
+            <param name="serialName"></param>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.SerialPort_DataReceived(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            接收事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.Package(System.String)">
+            <summary>
+            数据打包
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.StartContinueMeasure">
+            <summary>
+            开始连续测量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.StopContinueMeasure">
+            <summary>
+            停止测量
+            </summary>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.GetDistance">
+            <summary>
+            获取距离值(仅连续测量模式下有效)
+            </summary>
+            <returns>距离值,若不在连续采集模式下,返回-1</returns>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.MeasureOneshot">
+            <summary>
+            单次采集
+            </summary>
+            <returns>采集结果</returns>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.Dispose(System.Boolean)">
+            <summary>
+            释放资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:vQkmLib.Sensor.LaserRadiation.Meijidenki.MLD33.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+    </members>
+</doc>

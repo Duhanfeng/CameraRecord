@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vQkmLib.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:vQkmLib.Infrastructure.EnumHelper">
+            <summary>
+            枚举助手
+            </summary>
+        </member>
+        <member name="M:vQkmLib.Infrastructure.EnumHelper.GetDescription(System.Object)">
+            <summary>
+            获取枚举变量的描述
+            </summary>
+            <param name="enumObj">枚举变量</param>
+            <returns>描述</returns>
+        </member>
+        <member name="M:vQkmLib.Infrastructure.EnumHelper.GetEnum``1(System.String)">
+            <summary>
+            根据描述获取枚举变量
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="description">描述</param>
+            <returns>枚举类型</returns>
+        </member>
+        <member name="M:vQkmLib.Infrastructure.EnumHelper.GetAllDescriptions``1">
+            <summary>
+            获取枚举类型所有的描述
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <returns>描述列表</returns>
+        </member>
+    </members>
+</doc>
