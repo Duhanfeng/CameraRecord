@@ -127,6 +127,25 @@ namespace CameraRecord
 
         public ICamera Camera1 { get; set; } = new vQkmLib.Camera.Hik.HikCamera();
 
+        /// <summary>
+        /// 设置相机为连续拍照模式
+        /// </summary>
+        public void SetCameraToContinueMode(ICamera camera)
+        {
+            if (camera?.IsConnected == true)
+            {
+                //停止采集
+                if (camera.IsGrabbing)
+                {
+                    camera.StopGrabbing();
+                }
+
+                //使能触发模式
+                camera.NodeCollection.TriggerMode.IntValue = 0;
+            }
+        }
+
+
         #endregion
 
         #region 参数配置
@@ -160,6 +179,7 @@ namespace CameraRecord
             try
             {
                 Camera1.Connect();
+                SetCameraToContinueMode(Camera1);
                 Camera1.ImageGrabbed += Camera1_ImageGrabbed;
             }
             catch (Exception)
